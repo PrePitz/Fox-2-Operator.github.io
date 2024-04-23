@@ -2654,10 +2654,16 @@ body {
 .heading {
   color: #fff;
   margin-right: 0;
-  padding-right: 500px;
+  padding-right: 0px;
   position: relative;
   bottom: 259px;
   left: 265px;
+}
+
+.heading1 {
+  color: green;
+  padding-right: 0px;
+  position: relative;
 }
 
 @media screen and (min-width: 1920px) {
