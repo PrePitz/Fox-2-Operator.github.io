@@ -119,7 +119,9 @@
   <div class="content">
     <div class="sidebar">
       <div class="image-container">
-        <p>Insert Image</p>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <img id="uploadedImage" src="" alt="Gambar Berita" style="width: 100%; height: 100%;">
+        <button onclick="uploadImage()">Unggah Gambar</button>
       </div>
     </div>
     <div class="main">
@@ -127,8 +129,58 @@
         <label for="title" style="color: #FE7E22;">Title:</label>
         <input type="text" id="title" placeholder="Enter title">
       </div>
-      <button>POST</button>
+      <button onclick="postBerita()">POST</button>
     </div>
   </div>
+
+  <script>
+    function uploadImage() {
+      document.getElementById('imageUpload').click();
+    }
+
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          document.getElementById('uploadedImage').src = e.target.result;
+        }
+
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    });
+
+    function postBerita() {
+      var title = document.getElementById('title').value;
+      var image = document.getElementById('uploadedImage').src;
+
+      // Periksa apakah ada data yang dimasukkan
+      if (title === "" || image === "") {
+        alert("Harap isi semua field!");
+        return;
+      }
+
+      // Kirim data ke server menggunakan AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "your_server_endpoint", true); // Ganti dengan endpoint server Anda
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      var data = JSON.stringify({
+        title: title,
+        image: image
+      });
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log("Berita berhasil diposting!");
+          // belum 
+        } else if (xhr.readyState === 4) {
+          console.error("Terjadi kesalahan saat memposting berita.");
+        }
+      }
+
+      xhr.send(data);
+    }
+  </script>
 </body>
 </html>
