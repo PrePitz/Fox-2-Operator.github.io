@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Berita</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E;
+    }
+
+    header {
+      background-color: #1E1E1E;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+   .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+   .nav-link {
+      text-decoration: none;
+      color: #FE7E22;
+      margin-right: 20px;
+    }
+
+   .nav-link.active {
+      font-weight: bold;
+    }
+
+   .content {
+      display: flex;
+      padding: 20px;
+    }
+
+   .sidebar {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      margin-right: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+   .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+   .image-container {
+      width: 300px;
+      height: 200px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+    }
+
+   .image-container p {
+      margin: 0;
+    }
+
+   .form-group {
+      margin-bottom: 10px;
+    }
+
+   .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+   .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+   .login {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+   .login a {
+      text-decoration: none;
+      color: #FE7E22;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div>
+        <a href="#" class="nav-link active">Jadwal</a>
+        <a href="#" class="nav-link active">Berita</a>
+      </div>
+      <div class="login">
+        <a href="#">Log In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="sidebar">
+      <div class="image-container">
+        <p>Insert Image</p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="form-group">
+        <label for="title" style="color: #FE7E22;">Title:</label>
+        <input type="text" id="title" placeholder="Enter title">
+      </div>
+      <button>POST</button>
+    </div>
+  </div>
+</body>
+</html>
